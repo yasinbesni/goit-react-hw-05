@@ -1,0 +1,17 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.item {
+    width: 150px;
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
