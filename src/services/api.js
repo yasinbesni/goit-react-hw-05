@@ -6,7 +6,7 @@ if (!token) {
 }
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+axios.defaults.headers.common['Authorization'] =`Bearer ${token}`;
 
 export async function getTrendingMovies() {
   const response = await axios.get('/trending/movie/day');
