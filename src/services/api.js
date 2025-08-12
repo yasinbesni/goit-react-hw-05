@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NDQ5MGM3YmJkOTdlZDIwYjFkMjI5ZjZlMjIzMGRiMCIsIm5iZiI6MTc0NjI5MTAxMS42NTUsInN1YiI6IjY4MTY0OTQzNTQ2NTE5OTc4M2Y5NDgyYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EV0ufK7ofjGsd0PWua-xu18dKU8L7cDnjgnG22FiSoo'; 
-
+const token = import.meta.env.VITE_TMDB_TOKEN;
+if (!token) {
+  console.error("❌ TMDB API token not found! Check your .env settings.");
+}
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
-axios.defaults.headers.common['Authorization'] = `Bearer ${API_KEY}`;
+axios.defaults.headers.common['Authorization'] = `${token}`;
 
 export async function getTrendingMovies() {
   const response = await axios.get('/trending/movie/day');
